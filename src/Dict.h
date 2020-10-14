@@ -125,6 +125,7 @@ public:
 		}
 
 	const char* GetKey() const { return key_size <= 8 ? key_here : key; }
+	detail::HashKey* GetHashKey() const { return new detail::HashKey(GetKey(), key_size, hash); }
 
 	bool Equal(const char* arg_key, int arg_key_size, hash_t arg_hash) const
 		{//only 40-bit hash comparison.
